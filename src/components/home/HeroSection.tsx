@@ -18,25 +18,19 @@ export function HeroSection() {
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <div className="max-w-4xl">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-foreground/10 border border-primary-foreground/20 mb-8 animate-fade-in">
-            <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-            <span className="text-primary-foreground/80 text-sm font-medium">Hyderabad's Trusted Printing Partner</span>
-          </div>
-
           {/* Main Headline */}
-          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-primary-foreground leading-tight mb-6 animate-fade-in stagger-1">
+          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-primary-foreground leading-tight mb-6 animate-fade-in">
             Premium Printing & 
             <span className="block text-gradient">Branding Studio</span>
           </h1>
 
           {/* Subheadline */}
-          <p className="text-lg md:text-xl text-primary-foreground/70 max-w-2xl mb-10 animate-fade-in stagger-2 leading-relaxed">
+          <p className="text-lg md:text-xl text-primary-foreground/70 max-w-2xl mb-10 animate-fade-in stagger-1 leading-relaxed">
             Where creativity meets engineering. We transform ideas into print and spaces into brand experiences — with precision, technology, and unmatched craftsmanship.
           </p>
 
           {/* CTAs */}
-          <div className="flex flex-col sm:flex-row gap-4 animate-fade-in stagger-3">
+          <div className="flex flex-col sm:flex-row gap-4 animate-fade-in stagger-2">
             <Button variant="hero" size="xl" asChild>
               <Link to="/contact">
                 Get Instant Quote
@@ -52,7 +46,7 @@ export function HeroSection() {
           </div>
 
           {/* Trust Indicators */}
-          <div className="mt-16 pt-8 border-t border-primary-foreground/10 animate-fade-in stagger-4">
+          <div className="mt-16 pt-8 border-t border-primary-foreground/10 animate-fade-in stagger-3">
             <div className="flex flex-wrap items-center gap-8 md:gap-12">
               <div className="flex flex-col">
                 <span className="font-display text-3xl font-bold text-accent">10+</span>

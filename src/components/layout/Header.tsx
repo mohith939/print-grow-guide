@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "./ThemeToggle";
 import { cn } from "@/lib/utils";
 
 const navigation = [
@@ -24,7 +25,7 @@ export function Header() {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
             <div className="w-10 h-10 bg-gold-gradient rounded-lg flex items-center justify-center">
-              <span className="font-display font-bold text-primary text-lg">S</span>
+              <span className="font-display font-bold text-primary-foreground text-lg">S</span>
             </div>
             <div className="flex flex-col">
               <span className="font-display font-bold text-xl text-foreground">SSS Graphics</span>
@@ -56,19 +57,23 @@ export function Header() {
               <Phone className="w-4 h-4" />
               +91 86394 71849
             </a>
+            <ThemeToggle />
             <Button variant="gold" asChild>
               <Link to="/contact">Get Quote</Link>
             </Button>
           </div>
 
-          {/* Mobile menu button */}
-          <button
-            type="button"
-            className="lg:hidden p-2 text-foreground"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          {/* Mobile Right Side */}
+          <div className="flex lg:hidden items-center gap-2">
+            <ThemeToggle />
+            <button
+              type="button"
+              className="p-2 text-foreground"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            >
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}
