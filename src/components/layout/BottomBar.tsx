@@ -18,12 +18,12 @@ export function BottomBar() {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-t border-border p-3 animate-fade-in lg:hidden">
+    <div className="fixed bottom-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-t border-border p-3 animate-fade-in md:hidden">
       <div className="flex items-center justify-center gap-2">
         <Button
-          variant="default"
+          variant="whatsapp"
           size="sm"
-          className="flex-1 max-w-[140px]"
+          className="flex-1 max-w-[120px]"
           asChild
         >
           <a
@@ -31,25 +31,25 @@ export function BottomBar() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <MessageCircle className="w-4 h-4 mr-1.5" />
+            <MessageCircle className="w-4 h-4" />
             WhatsApp
           </a>
         </Button>
         <Button
           variant="default"
           size="sm"
-          className="flex-1 max-w-[140px]"
+          className="flex-1 max-w-[120px]"
           asChild
         >
           <a href="tel:+918639471849">
-            <Phone className="w-4 h-4 mr-1.5" />
+            <Phone className="w-4 h-4" />
             Call Now
           </a>
         </Button>
         <Button
           variant="outline"
           size="sm"
-          className="flex-1 max-w-[140px]"
+          className="flex-1 max-w-[120px]"
           asChild
         >
           <a
@@ -57,7 +57,7 @@ export function BottomBar() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <MapPin className="w-4 h-4 mr-1.5" />
+            <MapPin className="w-4 h-4" />
             Location
           </a>
         </Button>
