@@ -17,52 +17,52 @@ export function HeroSection() {
       <div className="absolute bottom-0 left-0 w-1/3 h-1 bg-gold-gradient" />
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
-        <div className="max-w-4xl">
+        <div className="max-w-6xl">
           {/* Main Headline */}
-          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight mb-6 animate-fade-in">
-            Premium Printing & 
+          <h1 className="font-display text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-tight mb-8 animate-fade-in">
+            Premium Printing &
             <span className="block text-gradient">Branding Studio</span>
           </h1>
 
           {/* Subheadline */}
-          <p className="text-lg md:text-xl text-white/70 max-w-2xl mb-10 animate-fade-in stagger-1 leading-relaxed">
+          <p className="text-xl md:text-2xl text-white/80 max-w-3xl mb-12 animate-fade-in stagger-1 leading-relaxed">
             Where creativity meets engineering. We transform ideas into print and spaces into brand experiences — with precision, technology, and unmatched craftsmanship.
           </p>
 
           {/* CTAs */}
-          <div className="flex flex-col sm:flex-row gap-4 animate-fade-in stagger-2">
-            <Button variant="hero" size="xl" asChild>
+          <div className="flex flex-col sm:flex-row gap-6 animate-fade-in stagger-2">
+            <Button variant="hero" size="xl" asChild className="text-lg px-8 py-4">
               <Link to="/contact">
                 Get Instant Quote
-                <ArrowRight className="w-5 h-5" />
+                <ArrowRight className="w-6 h-6 ml-2" />
               </Link>
             </Button>
-            <Button variant="hero-outline" size="xl" asChild>
+            <Button variant="hero-outline" size="xl" asChild className="text-lg px-8 py-4">
               <Link to="/contact">
-                <Upload className="w-5 h-5" />
+                <Upload className="w-6 h-6 mr-2" />
                 Upload Your Design
               </Link>
             </Button>
           </div>
 
           {/* Trust Indicators */}
-          <div className="mt-16 pt-8 border-t border-white/10 animate-fade-in stagger-3">
-            <div className="flex flex-wrap items-center gap-8 md:gap-12">
-              <div className="flex flex-col">
-                <span className="font-display text-3xl font-bold text-accent">10+</span>
-                <span className="text-white/60 text-sm">Years Experience</span>
+          <div className="mt-20 pt-10 border-t border-white/20 animate-fade-in stagger-3">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+              <div className="flex flex-col items-center text-center">
+                <span className="font-display text-4xl md:text-5xl font-bold text-accent mb-2">10+</span>
+                <span className="text-white/70 text-base font-medium">Years Experience</span>
               </div>
-              <div className="flex flex-col">
-                <span className="font-display text-3xl font-bold text-accent">5000+</span>
-                <span className="text-white/60 text-sm">Projects Delivered</span>
+              <div className="flex flex-col items-center text-center">
+                <span className="font-display text-4xl md:text-5xl font-bold text-accent mb-2">5000+</span>
+                <span className="text-white/70 text-base font-medium">Projects Delivered</span>
               </div>
-              <div className="flex flex-col">
-                <span className="font-display text-3xl font-bold text-accent">99%</span>
-                <span className="text-white/60 text-sm">On-Time Delivery</span>
+              <div className="flex flex-col items-center text-center">
+                <span className="font-display text-4xl md:text-5xl font-bold text-accent mb-2">99%</span>
+                <span className="text-white/70 text-base font-medium">On-Time Delivery</span>
               </div>
-              <div className="flex flex-col">
-                <span className="font-display text-3xl font-bold text-accent">500+</span>
-                <span className="text-white/60 text-sm">Happy Clients</span>
+              <div className="flex flex-col items-center text-center">
+                <span className="font-display text-4xl md:text-5xl font-bold text-accent mb-2">500+</span>
+                <span className="text-white/70 text-base font-medium">Happy Clients</span>
               </div>
             </div>
           </div>

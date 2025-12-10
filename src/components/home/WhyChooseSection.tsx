@@ -1,4 +1,5 @@
-import { Check, Zap, Home, Award, DollarSign } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Check, Zap, Home, Award, DollarSign, ChevronLeft, ChevronRight } from "lucide-react";
 
 const features = [
   {
@@ -29,6 +30,35 @@ const features = [
 ];
 
 export function WhyChooseSection() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [itemsPerView, setItemsPerView] = useState(3);
+
+  useEffect(() => {
+    const updateItemsPerView = () => {
+      if (window.innerWidth >= 1024) {
+        setItemsPerView(3);
+      } else if (window.innerWidth >= 768) {
+        setItemsPerView(2);
+      } else {
+        setItemsPerView(1);
+      }
+    };
+
+    updateItemsPerView();
+    window.addEventListener('resize', updateItemsPerView);
+    return () => window.removeEventListener('resize', updateItemsPerView);
+  }, []);
+
+  const maxIndex = features.length - itemsPerView;
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % (maxIndex + 1));
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev - 1 + (maxIndex + 1)) % (maxIndex + 1));
+  };
+
   return (
     <section className="py-20 lg:py-28 bg-secondary">
       <div className="container mx-auto px-4 lg:px-8">
@@ -45,24 +75,51 @@ export function WhyChooseSection() {
           </p>
         </div>
 
-        {/* Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature, index) => (
+        {/* Carousel */}
+        <div className="relative max-w-7xl mx-auto">
+          {/* Navigation Buttons */}
+          <button
+            onClick={prevSlide}
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-background/80 backdrop-blur-sm border border-border rounded-full flex items-center justify-center hover:bg-background transition-colors shadow-lg -translate-x-6"
+            aria-label="Previous"
+          >
+            <ChevronLeft className="w-6 h-6" />
+          </button>
+          <button
+            onClick={nextSlide}
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-background/80 backdrop-blur-sm border border-border rounded-full flex items-center justify-center hover:bg-background transition-colors shadow-lg translate-x-6"
+            aria-label="Next"
+          >
+            <ChevronRight className="w-6 h-6" />
+          </button>
+
+          {/* Features Container */}
+          <div className="overflow-hidden px-8">
             <div
-              key={feature.title}
-              className="group bg-card p-8 rounded-2xl border border-border hover:border-accent/50 hover:shadow-xl transition-all duration-300"
+              className="flex transition-transform duration-500 ease-in-out"
+              style={{ transform: `translateX(-${currentIndex * (100 / itemsPerView)}%)` }}
             >
-              <div className="w-14 h-14 bg-gold-gradient rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                <feature.icon className="w-7 h-7 text-primary" />
-              </div>
-              <h3 className="font-display text-xl font-semibold text-foreground mb-3">
-                {feature.title}
-              </h3>
-              <p className="text-muted-foreground leading-relaxed">
-                {feature.description}
-              </p>
+              {features.map((feature, index) => (
+                <div
+                  key={feature.title}
+                  className="flex-shrink-0 px-2"
+                  style={{ width: `${100 / itemsPerView}%` }}
+                >
+                  <div className="group bg-card p-8 rounded-2xl border border-border hover:border-accent/50 hover:shadow-xl transition-all duration-300 h-full">
+                    <div className="w-14 h-14 bg-gold-gradient rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                      <feature.icon className="w-7 h-7 text-primary" />
+                    </div>
+                    <h3 className="font-display text-xl font-semibold text-foreground mb-3">
+                      {feature.title}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {feature.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </section>

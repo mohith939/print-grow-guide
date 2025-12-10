@@ -1,0 +1,2 @@
+- [ ] Update index.html to set sss-logo.png as favicon
+- [ ] Update Header.tsx to replace text logo with img tag using sss-logo.png
