@@ -1,24 +1,9 @@
-import { useState, useEffect } from "react";
 import { MessageCircle, Phone, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export function BottomBar() {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      setIsVisible(scrollY > 300);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  if (!isVisible) return null;
-
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-t border-border p-3 animate-fade-in md:hidden">
+    <div className="fixed bottom-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-t border-border p-3 md:hidden">
       <div className="flex items-center justify-center gap-2">
         <Button
           variant="whatsapp"
